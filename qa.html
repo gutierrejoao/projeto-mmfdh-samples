@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA</title>
+</head>
+
+<body>
+    <script type="application/javascript" charset="UTF-8"
+        src="https://cdn.agentbot.net/core/d0fffa5a763b885f3cae1bb86fdd2364.js"></script>
+    <script>
+
+        $aivo.ready(function () {
+            // Executa ação ao ABRIR bot => Abrir atendimento e gerar protocolo.
+            $aivo.subscribe.onOpenWindow(function () {
+                $aivo.chat.sendMessage('Gerar protocolo de atendimento');
+            });
+
+            // Executa ação ao FECHAR bot => Fechar atendimento e encerrar protocolo vinculado.
+            $aivo.subscribe.onCloseWindow(function () {
+                $aivo.chat.sendMessage('teste encerrar')
+            });
+        });
+    </script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let date = new Date();
+        formatDate(date).forEach(treatedDate => {
+            console.log(treatedDate)
+        })
+
+        function formatDate(date) {
+            const MONTH = validateZerosOnDates('' + (date.getMonth() + 1))
+            const DAY = validateZerosOnDates('' + date.getDate())
+            const YEAR = validateZerosOnDates('' + date.getFullYear())
+            const HOURS = validateZerosOnDates('' + date.getHours())
+            const MINUTES = validateZerosOnDates('' + date.getMinutes())
+            const SECONDS = validateZerosOnDates('' + date.getSeconds())
+
+            let stockDate = [
+                [
+                    [YEAR, MONTH, DAY,].join('/'),
+                    [HOURS, MINUTES, SECONDS].join(':')
+                ].join(' ')]
+
+            function validateZerosOnDates(number) {
+                return number.length < 2 ? number = '0' + number : number;
+            }
+
+            return stockDate
+        }
+    </script>
+</body>
+
+</html>
